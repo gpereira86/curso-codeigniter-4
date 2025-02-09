@@ -53,3 +53,8 @@ Events::on('pre_system', static function (): void {
         }
     }
 });
+
+
+Events::on('post_controller_constructor', function (){
+   var_dump('Chamado após o Controller ser executado');
+});
