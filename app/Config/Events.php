@@ -2,6 +2,10 @@
 
 namespace Config;
 
+use App\Libraries\interfaces\PaymentInterface;
+use App\Libraries\Payment;
+use App\Libraries\PaymentPageSeguro;
+use App\Libraries\PaymentPaypal;
 use CodeIgniter\Events\Events;
 use CodeIgniter\Exceptions\FrameworkException;
 use CodeIgniter\HotReloader\HotReloader;
@@ -54,7 +58,11 @@ Events::on('pre_system', static function (): void {
     }
 });
 
+Events::on('email_send', function (){
+    var_dump('');
+});
 
-Events::on('post_controller_constructor', function (){
-   var_dump('Chamado após o Controller ser executado');
+Events::on('payment', function (PaymentInterface $paymentInterface) {
+    $payment = new Payment();
+    $payment->pay(new $paymentInterface);
 });
