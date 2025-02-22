@@ -5,10 +5,10 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class Product extends BaseController
+class Admin extends BaseController
 {
-    public function index()
+    public function index(): void
     {
-        return view('products');
+        var_dump('admin');
     }
 }

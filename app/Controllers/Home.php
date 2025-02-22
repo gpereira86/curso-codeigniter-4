@@ -2,28 +2,12 @@
 
 namespace App\Controllers;
 
-use App\Libraries\Payment;
-use App\Libraries\PaymentPageSeguro;
-use App\Libraries\PaymentPaypal;
-use CodeIgniter\Events\Events;
-use Config\Services;
+use App\Controllers\BaseController;
 
 class Home extends BaseController
 {
-    public function index():string
+    public function index()
     {
-//        helper(['array', 'form', 'html', 'teste']);
-
-//        Events::trigger('payment', new PaymentPaypal());
-//        die();
-//
-//        return view('home');
-
-        $auth1 = single_service('auth', 'teste1');
-        $auth2 = single_service('auth', 'teste2');
-
-
-
         return view('home');
     }
 }
